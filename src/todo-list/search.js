@@ -30,7 +30,7 @@ const  Search = (props) => {
         value={Value} 
         type="text" 
         onChange={e => handleChange(e)} 
-        placeholder="Search Pictures"
+        placeholder="ADD YOUR ACTIVITIES"
       />
       <button onClick={handleOnSubmit}>ADD ITEM</button>
       {TaskList !== [] ? 
@@ -41,7 +41,7 @@ const  Search = (props) => {
             </li>
           ))}
         </ul> 
-      : null}
+      : null} 
     </div>
   )
 }
