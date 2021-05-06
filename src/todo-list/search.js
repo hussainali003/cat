@@ -5,7 +5,6 @@ import {useState} from "react"
 const  Search = (props) => {
   let [Value,setValue] = useState("")
   let [TaskList,setTaskList] = useState([])
-  console.log(...TaskList)
   const handleChange = (e) => {
     setValue(e.target.value)
   }
@@ -19,13 +18,28 @@ const  Search = (props) => {
       setTaskList([...TaskList,TaskDetails])
       // setTaskList ko hum na array isliyeh manayeh q ka jab 
       //...TaskList asa used ho gi to wo return jo array ka andar ho ga  
+    setValue("")
     }
   }
+  const handleKeyUp = (e) => {
+    if (e.keyCode === 13){
+      e.preventDefault();
+      if (Value !== ""){
+        const TaskDetails = {
+          value : Value,
+          id : Math.floor(Math.random()*1000),
+        }
+      setTaskList([...TaskList,TaskDetails])
+      setValue("")
+      }
+    }
+  }
+
   const handleDelete = (e,id) => {
     e.preventDefault()
     setTaskList(TaskList.filter(task => task.id !== id))
   }
-  console.log(TaskList)
+  
   return (
     <div>
       <h1>Todo List</h1>
@@ -34,6 +48,7 @@ const  Search = (props) => {
         type="text" 
         onChange={e => handleChange(e)} 
         placeholder="ADD YOUR ACTIVITIES"
+        onKeyUp={e => handleKeyUp(e)}
       />
       <button onClick={handleOnSubmit}>ADD ITEM</button>
       {TaskList !== [] ? 
