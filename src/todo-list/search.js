@@ -39,7 +39,6 @@ const  Search = (props) => {
     e.preventDefault()
     setTaskList(TaskList.filter(task => task.id !== id))
   }
-  
   return (
     <div>
       <h1>Todo List</h1>
@@ -63,5 +62,6 @@ const  Search = (props) => {
     </div>
   )
 }
+
 
 export default Search
