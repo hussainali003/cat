@@ -1,11 +1,12 @@
 import React from 'react'
 import TodoList from './todo-list/index'
-import Calculator from './calculator/index'
+import Emoji from './emoji/index'
+
 const App = () => {
   return (
     <div>
       <TodoList />
-      <Calculator />
+      <Emoji />
     </div>
   )
 }
